@@ -1,0 +1,264 @@
+$accent: #f97316;
+
+.cart-page {
+  max-width: 1300px;
+  margin: 40px auto;
+  padding: 0 40px;
+}
+
+.loading {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-top: 24px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 24px 0 8px;
+  }
+
+  p {
+    color: #6b7280;
+    font-size: 1rem;
+    margin: 0 0 32px;
+  }
+
+  .browse-btn {
+    padding: 12px 32px;
+    background: $accent;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover { background: #ea6c0a; }
+  }
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── Left column ── */
+.cart-items {
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+    color: #111827;
+  }
+
+  .item-count {
+    color: #6b7280;
+    margin: 0 0 24px;
+    font-size: 1rem;
+  }
+}
+
+.cart-card {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 20px;
+  align-items: start;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: #fff;
+
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #111827;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 6px 12px;
+  width: fit-content;
+  margin-top: 12px;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #374151;
+    padding: 0 2px;
+    line-height: 1;
+
+    &:hover { color: $accent; }
+  }
+
+  span {
+    font-size: 1rem;
+    font-weight: 500;
+    min-width: 20px;
+    text-align: center;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  min-width: 120px;
+
+  .remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ef4444;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+
+    &:hover { color: #dc2626; }
+  }
+
+  .unit-price {
+    font-size: 0.95rem;
+    color: #6b7280;
+  }
+
+  .item-total {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $accent;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    position: static;
+  }
+
+  .cart-page {
+    padding: 0 16px;
+    margin: 24px auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .cart-card {
+    grid-template-columns: 90px 1fr;
+    grid-template-rows: auto auto;
+
+    img {
+      width: 90px;
+      height: 90px;
+    }
+
+    .controls {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      min-width: unset;
+    }
+  }
+}
+
+/* ── Right column ── */
+.summary-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 28px;
+  background: #fff;
+  position: sticky;
+  top: 24px;
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 24px;
+    color: #111827;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #374151;
+    margin-bottom: 14px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 20px 0;
+  }
+
+  .total-row {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+
+    .total-price {
+      color: $accent;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+
+  .checkout-btn {
+    width: 100%;
+    padding: 16px;
+    background: $accent;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover { background: #ea6c0a; }
+  }
+}

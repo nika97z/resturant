@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+@if (isLoading()) {
+  <p class="status">Loading...</p>
+} @else if (!product()) {
+  <p class="status">Product not found.</p>
+} @else {
+  <div class="detail-layout">
+
+    <div class="image-side">
+      <img [src]="product().image" [alt]="product().name">
+    </div>
+
+    <div class="info-side">
+      <h1>{{ product().name }}</h1>
+
+      <div class="rating-row">
+        @for (star of stars(); track $index) {
+          <span class="star" [class.filled]="star === 'full'">★</span>
+        }
+        <span class="rating-text">({{ product().rate }} rating)</span>
+      </div>
+
+      <p class="price">${{ product().price }}</p>
+
+      @if (product().isVegetarian || product().vegetarian) {
+        <span class="veg-badge">🌿 Vegetarian</span>
+      }
+
+      <p class="description">{{ product().description }}</p>
+
+      @if (product().ingredients?.length) {
+        <div class="section">
+          <h3>Ingredients:</h3>
+          <ul class="ingredients">
+            @for (item of product().ingredients; track $index) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </div>
+      }
+
+      @if (product().preparationMethod || product().recipe) {
+        <div class="section">
+          <h3>Preparation Method:</h3>
+          <p class="prep-text">{{ product().preparationMethod ?? product().recipe }}</p>
+        </div>
+      }
+
+      <div class="quantity-row">
+        <button type="button" class="qty-btn" (click)="decrease()">−</button>
+        <span class="qty-value">{{ quantity() }}</span>
+        <button type="button" class="qty-btn" (click)="increase()">+</button>
+      </div>
+
+      <button type="button" class="add-btn" (click)="addToCart()">
+        {{ added() ? '✓ Added to Cart' : 'Add to Cart' }}
+      </button>
+    </div>
+
+  </div>
+}

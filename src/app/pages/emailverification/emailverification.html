@@ -1,0 +1,23 @@
+<div class="main">
+    <h2>Verify Your Email</h2>
+    <p>We've sent a verification code to: <strong>{{ email }}</strong></p>
+    <p>Enter the code from your email to verify your account.</p>
+    
+    <form (ngSubmit)="verifyEmail()">
+        <div class="verification">
+            <label for="code">Verification Code:</label>
+            <input type="text" id="code" name="code" [(ngModel)]="code" required>
+        </div>
+        <button type="submit">Verify Email</button>
+    </form>
+    
+    <div class="resend-section">
+        <p>Didn't receive the code?</p>
+        <button type="button" (click)="resendVerification()" [disabled]="isResending">
+            {{ isResending ? 'Sending...' : 'Resend Code' }}
+        </button>
+        @if (resendMessage) {
+            <p>{{ resendMessage }}</p>
+        }
+    </div>
+</div>

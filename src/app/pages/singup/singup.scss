@@ -1,0 +1,159 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 6px;
+    color: #111827;
+  }
+}
+
+.subtitle {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0 0 24px;
+}
+
+.error {
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  margin-bottom: 16px;
+
+  label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #f9fafb;
+    font-size: 0.9rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+
+    &:focus { border-color: #f97316; background: #fff; }
+  }
+}
+
+.input-wrap {
+  position: relative;
+
+  input { padding-right: 42px; width: 100%; box-sizing: border-box; }
+}
+
+.eye-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  padding: 0;
+
+  &:hover { color: #374151; }
+}
+
+.rules {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  li {
+    font-size: 0.8rem;
+    color: #f97316;
+
+    &::before { content: '• '; }
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f97316;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+
+  &:hover { background: #ea6c0a; }
+}
+
+.signin-text {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 16px 0 0;
+}
+
+.link {
+  color: #f97316;
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover { text-decoration: underline; }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 28px 20px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .name-row {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    align-items: flex-start;
+  }
+}

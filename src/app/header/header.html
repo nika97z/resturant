@@ -1,0 +1,56 @@
+@if (toast()) {
+  <div class="toast">
+    <button type="button" class="toast-close" (click)="hideToast()">✕</button>
+    <span class="toast-icon">✓</span>
+    <div>
+      <p class="toast-title">{{ toast()!.title }}</p>
+      <p class="toast-sub">{{ toast()!.message }}</p>
+    </div>
+  </div>
+}
+
+<header class="header">
+  <div class="left">
+    <a routerLink="/" class="logo">Foodie</a>
+    <nav>
+      <a routerLink="/" class="nav-link">Home</a>
+      <a routerLink="/menu" class="nav-link">Menu</a>
+    </nav>
+  </div>
+
+  <div class="right">
+    <a [routerLink]="isLoggedIn() ? '/cart' : '/login'" class="cart-wrap" title="Cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+      </svg>
+      @if (cartCount() > 0) {
+        <span class="cart-badge">{{ cartCount() }}</span>
+      }
+    </a>
+
+    @if (isLoggedIn()) {
+      <div class="user-menu">
+        <button type="button" class="icon-btn user-btn" title="Account" (click)="toggleDropdown()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+
+        @if (showDropdown()) {
+          <div class="dropdown">
+            <p class="dropdown-name">Hello: {{ userName() }}</p>
+            <a routerLink="/profile" class="dropdown-item" (click)="showDropdown.set(false)">Profile</a>
+            <button type="button" class="dropdown-item" (click)="logout()">Logout</button>
+          </div>
+        }
+      </div>
+    } @else {
+      <a routerLink="/login" class="nav-link">Login</a>
+      <a routerLink="/singup" class="nav-link">Sign Up</a>
+    }
+  </div>
+</header>
