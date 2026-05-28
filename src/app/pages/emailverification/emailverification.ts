@@ -1,3 +1,5 @@
+
+
 import { Component, inject, OnInit } from '@angular/core';
 import { APIService } from '../../API/apiservice';
 import { HttpClient } from '@angular/common/http';
@@ -43,7 +45,6 @@ export class Emailverification implements OnInit {
     })
       .subscribe({
         next: (response: any) => {
-          console.log('Verification email sent:', response);
           alert('Verification email sent! Check your inbox.');
         },
         error: (error) => {
@@ -68,7 +69,6 @@ export class Emailverification implements OnInit {
     })
       .subscribe({
         next: (response: any) => {
-          console.log('Email verified:', response);
           alert('Email verified successfully! Please login.');
           this.router.navigate(['/login']);
         },
@@ -96,7 +96,6 @@ export class Emailverification implements OnInit {
     })
       .subscribe({
         next: (response: any) => {
-          console.log('Verification code resent:', response);
           this.resendMessage = 'Verification code sent again! Check your inbox.';
           this.isResending = false;
         },

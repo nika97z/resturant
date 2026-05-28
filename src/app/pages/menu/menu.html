@@ -34,32 +34,32 @@
     <div class="filter-group toggle-row">
       <span class="filter-label">Vegetarian Only</span>
       <label class="toggle">
-        <input type="checkbox" [(ngModel)]="filters.vegetarian" (change)="onFilterChange()">
+        <input type="checkbox" [(ngModel)]="filters.vegetarian" (change)="onFilterChange()" aria-label="Vegetarian Only">
         <span class="slider-t"></span>
       </label>
     </div>
 
     <div class="filter-group">
       <label class="filter-label">Spiciness (0-5)</label>
-      <input type="range" min="0" max="5" step="1" [(ngModel)]="filters.spiciness" (input)="onFilterChange()">
+      <input type="range" min="0" max="5" step="1" [(ngModel)]="filters.spiciness" (input)="onFilterChange()" aria-label="Spiciness">
       <span class="filter-val">{{ filters.spiciness === 0 ? 'Level: not selected' : 'Level: ' + filters.spiciness }}</span>
     </div>
 
     <div class="filter-group">
       <label class="filter-label">Minimum Rating</label>
-      <input type="range" min="0" max="5" step="0.1" [(ngModel)]="filters.minRating" (input)="onFilterChange()">
+      <input type="range" min="0" max="5" step="0.1" [(ngModel)]="filters.minRating" (input)="onFilterChange()" aria-label="Minimum Rating">
       <span class="filter-val"><span class="star">★</span> {{ filters.minRating | number:'1.1-1' }}+</span>
     </div>
 
     <div class="filter-group">
       <label class="filter-label">Min price</label>
-      <input type="range" min="0" max="100" step="1" [(ngModel)]="filters.minPrice" (input)="onFilterChange()">
+      <input type="range" min="0" max="100" step="1" [(ngModel)]="filters.minPrice" (input)="onFilterChange()" aria-label="Minimum Price">
       <span class="filter-val">$ {{ filters.minPrice }}</span>
     </div>
 
     <div class="filter-group">
       <label class="filter-label">Max price</label>
-      <input type="range" class="red-thumb" min="0" max="500" step="1" [(ngModel)]="filters.maxPrice"
+      <input type="range" class="red-thumb" min="0" max="500" step="1" [(ngModel)]="filters.maxPrice" aria-label="Maximum Price"
         [style.--p]="maxPricePct" (input)="onFilterChange()">
       <span class="filter-val">{{ filters.maxPrice >= 500 ? '$ 500+' : '$ ' + filters.maxPrice }}</span>
     </div>

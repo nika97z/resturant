@@ -39,7 +39,6 @@ export class APIService {
       Query: filters.search || ''
     });
     const url = `https://restaurantapi.stepacademy.ge/api/products/filter?${params.toString()}`;
-    console.log('Filter URL:', url);
     return url;
   }
 

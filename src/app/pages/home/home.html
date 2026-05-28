@@ -16,7 +16,7 @@
     } @else {
       @for (product of products(); track product?.id) {
         <div class="product" [routerLink]="['/detals', product.id]">
-          <img [src]="product.image" alt="image">
+          <img [src]="product.image" [alt]="product.name">
           <div class="product-body">
             <h3>{{ product.name }}</h3>
             <p class="desc">{{ product.description }}</p>

@@ -44,7 +44,6 @@ export class ResetPassword implements OnInit {
     })
       .subscribe({
         next: (response: any) => {
-          console.log('Password reset email sent:', response);
           this.message = 'Password reset link sent! Check your email.';
           this.isSuccess = true;
           this.isLoading = false;

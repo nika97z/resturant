@@ -130,6 +130,7 @@ export class Menu implements OnInit, OnDestroy {
     ).subscribe({
       next: (response: any) => {
         this.products = response?.products ?? response?.data?.products ?? [];
+        console.log('Products:', this.products);
         this.hasNextPage = this.products.length >= this.PAGE_SIZE;
         this.isLoading = false;
         this.cdr.detectChanges();
